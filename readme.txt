@@ -4,3 +4,5 @@
 
 3. In changePizzaSizes(), cache document.querySelectorAll(".randomPizzaContainer") to avoid repetitive computation.
    Also, since the width is all the same for all pizza, we can move the new_width calculation outside the loop.
+
+4. Replace querySelectorAll and querySelector call with getElementsByClassName or getElementsById for better performance.
