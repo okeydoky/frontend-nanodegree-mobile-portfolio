@@ -524,10 +524,12 @@ function updatePositions() {
 window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
+// Only add on windows viewport size since mover class position is fixed
 document.addEventListener('DOMContentLoaded', function() {
-  var cols = 8;
   var s = 256;
-  for (var i = 0; i < 200; i++) {
+  var cols = Math.min(8, Math.ceil(window.innerWidth / s));
+  var rows = Math.ceil(window.innerHeight / s);
+  for (var i = 0, total = cols * rows; i < total; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
